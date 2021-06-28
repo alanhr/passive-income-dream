@@ -15,7 +15,7 @@
   })
 </script>
 
-<div>
+<div  class="bg-primary-50  rounded-xl p-8">
   <span>Economia Atual (%): {$incomeForm.percentageSaved}%</span>
   <span>Economia Atual (R$): {currentyIncomeSaved}</span>
   <span>Grande Objetivo (R$): {incomeGoal}</span>
