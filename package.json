@@ -6,11 +6,31 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
+    "lint": "eslint './src/**/*.{js,ts,svelte}'",
+    "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
+    "prelint": "npm run format"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "autoprefixer": "^10.2.6",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.29.0",
+    "eslint-plugin-svelte3": "^3.2.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "postcss": "^8.3.5",
+    "postcss-load-config": "^3.1.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-svelte": "^2.3.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -19,12 +39,36 @@
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "typescript": "^4.0.0",
+    "tailwindcss": "^2.2.4",
     "tslib": "^2.0.0",
-    "@tsconfig/svelte": "^2.0.0"
+    "typescript": "^4.0.0"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false
+  },
+  "lint-staged": {
+    "*.{svelte,ts,tsx}": [
+      "svelte-check",
+      "yarn lint:fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
