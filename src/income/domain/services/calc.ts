@@ -4,13 +4,13 @@ export const getCurrentlyIncomeSaved = ({
   monthlyIncome,
   percentageSaved,
 }: Pick<Income, 'monthlyIncome' | 'percentageSaved'>): number =>
-  Math.round(monthlyIncome * (percentageSaved / 100)) ?? 0
+  Math.round(monthlyIncome * (percentageSaved / 100))
 
 export const getIncomeGoal = ({
   desiredIncome,
   passiveYield,
 }: Pick<Income, 'desiredIncome' | 'passiveYield'>): number =>
-  (desiredIncome * 12) / (passiveYield / 100) ?? 0
+  (desiredIncome * 12) / (passiveYield / 100)
 
 export const getAnnualContribution = (
   incomeSaved: number,

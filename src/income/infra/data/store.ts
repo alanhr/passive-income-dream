@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store'
-import type { Income } from '../domain/model'
+import type { Income } from '../../domain/model'
 
 export const incomeForm = writable<Income>({
   desiredIncome: 0,

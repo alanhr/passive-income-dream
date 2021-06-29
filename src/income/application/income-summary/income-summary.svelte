@@ -3,20 +3,37 @@
     getCurrentlyIncomeSaved,
     getIncomeGoal,
   } from '../../domain/services/calc'
-  import { incomeForm } from '../../infra/store'
+  import { formatCurrency } from '../../../shared/helpers/format-currency'
+
+  import type { Income } from '../../domain/model'
+
+  export let incomeForm: Income
 
   $: currentyIncomeSaved = getCurrentlyIncomeSaved({
-    monthlyIncome: $incomeForm.monthlyIncome,
-    percentageSaved: $incomeForm.percentageSaved,
+    monthlyIncome: incomeForm.monthlyIncome ?? 0,
+    percentageSaved: incomeForm.percentageSaved ?? 1,
   })
   $: incomeGoal = getIncomeGoal({
-    desiredIncome: $incomeForm.desiredIncome,
-    passiveYield: $incomeForm.passiveYield,
+    desiredIncome: incomeForm.desiredIncome ?? 0,
+    passiveYield: incomeForm.passiveYield ?? 1,
   })
 </script>
 
-<div  class="bg-primary-50  rounded-xl p-8">
-  <span>Economia Atual (%): {$incomeForm.percentageSaved}%</span>
-  <span>Economia Atual (R$): {currentyIncomeSaved}</span>
-  <span>Grande Objetivo (R$): {incomeGoal}</span>
+<div class="bg-primary-50  rounded-xl p-8">
+  <h2 class="font-display text-accent-800 text-3xl text-center">Resumo</h2>
+  <div class="h-0.5 bg-primary-300" />
+  <div class="grid grid-cols-1 gap-4 pt-4">
+    <div class="flex justify-between">
+      <span>Economia Atual (%)</span>
+      <span>{incomeForm.percentageSaved}%</span>
+    </div>
+    <div class="flex justify-between">
+      <span>Economia Atual (R$)</span>
+      <span>{formatCurrency(currentyIncomeSaved)}</span>
+    </div>
+    <div class="flex justify-between">
+      <span>Grande Objetivo (R$)</span>
+      <span>{formatCurrency(incomeGoal)}</span>
+    </div>
+  </div>
 </div>

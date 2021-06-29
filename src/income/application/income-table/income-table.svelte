@@ -1,44 +1,44 @@
 <script lang="ts">
   import { formatCurrency } from '../../../shared/helpers/format-currency'
-
   import type { IncomeDetail } from '../../domain/model'
 
   export let incomeDetails: IncomeDetail[] = []
 </script>
 
 <div
-  class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+  class:overflow-x-auto={Boolean(incomeDetails.length)}
+  class="shadow border-b border-gray-200 rounded-lg max-h-hath"
 >
   <table class="table-auto min-w-full divide-y divide-gray-200">
-    <thead class="bg-primary-50">
+    <thead class="bg-primary-50 relative">
       <tr>
         <th
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider sticky top-0 bg-primary-50"
         >
           Aporte Anual
         </th>
         <th
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider sticky top-0 bg-primary-50"
         >
           Rendimento Anual
         </th>
         <th
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider sticky top-0 bg-primary-50"
         >
           Valor Final
         </th>
         <th
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider sticky top-0 bg-primary-50"
         >
           Renda Passiva Anual
         </th>
         <th
           scope="col"
-          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider"
+          class="px-6 py-3 text-left text-xs font-medium text-accent-800 uppercase tracking-wider sticky top-0 bg-primary-50"
         >
           Renda Passiva Mensal
         </th>
