@@ -11,22 +11,31 @@
     "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
     "lint": "eslint './src/**/*.{js,ts,svelte}'",
     "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
-    "prelint": "npm run format"
+    "prelint": "npm run format",
+    "test": "jest",
+    "test:watch": "yarn test --watch"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/svelte": "^3.0.3",
     "@tsconfig/svelte": "^2.0.0",
+    "@types/jest": "^26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "autoprefixer": "^10.2.6",
+    "babel-jest": "^27.0.6",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.29.0",
     "eslint-plugin-svelte3": "^3.2.0",
     "husky": "^6.0.0",
+    "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "postcss": "^8.3.5",
     "postcss-load-config": "^3.1.0",
@@ -39,8 +48,10 @@
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
+    "svelte-jester": "^1.7.0",
     "svelte-preprocess": "^4.0.0",
     "tailwindcss": "^2.2.4",
+    "ts-jest": "^27.0.3",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },
@@ -70,6 +81,32 @@
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
+    ]
+  },
+  "jest": {
+    "bail": false,
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "svelte"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svelte$": "svelte-jester",
+      "^.+\\.ts$": "ts-jest"
+    },
+    "verbose": true
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
     ]
   }
 }
