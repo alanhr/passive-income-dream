@@ -7,6 +7,7 @@
   import { createIncomeDetails } from '../domain/factory/create-income-details'
   import Container from '../../shared/ui/container/container.svelte'
   import type { IncomeDetail } from '../domain/model'
+import IncomeTable from './income-table/income-table.svelte'
 
   $: incomeDetails = [] as IncomeDetail[]
 
@@ -20,17 +21,7 @@
     <IncomeForm on:submit={handlerSubmite} />
     <IncomeSummary />
   </div>
-  <table class="table-auto">
-    {#each incomeDetails as incomeDetail}
-      <tbody>
-        <tr>
-          <td>{incomeDetail.annualContribution}</td>
-          <td>{incomeDetail.annualYield}</td>
-          <td>{incomeDetail.finalValue}</td>
-          <td>{incomeDetail.annualPassiveIncome}</td>
-          <td>{incomeDetail.monthlyPassiveIncome}</td>
-        </tr>
-      </tbody>
-    {/each}
-  </table>
+  <div class="mt-16">
+    <IncomeTable incomeDetails={incomeDetails} />
+  </div>
 </Container>
