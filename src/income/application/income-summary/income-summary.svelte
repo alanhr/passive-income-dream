@@ -9,14 +9,8 @@
 
   export let incomeForm: Income
 
-  $: currentyIncomeSaved = getCurrentlyIncomeSaved({
-    monthlyIncome: incomeForm.monthlyIncome ?? 0,
-    percentageSaved: incomeForm.percentageSaved ?? 1,
-  })
-  $: incomeGoal = getIncomeGoal({
-    desiredIncome: incomeForm.desiredIncome ?? 0,
-    passiveIncome: incomeForm.passiveIncome ?? 1,
-  })
+  $: currentyIncomeSaved = getCurrentlyIncomeSaved(incomeForm)
+  $: incomeGoal = getIncomeGoal(incomeForm)
 </script>
 
 <div class="bg-primary-50  rounded-xl p-8">
@@ -25,7 +19,7 @@
   <div class="grid grid-cols-1 gap-4 pt-4">
     <div class="flex justify-between">
       <span>Economia Atual (%)</span>
-      <span>{incomeForm.percentageSaved}%</span>
+      <span>{incomeForm.saved}%</span>
     </div>
     <div class="flex justify-between">
       <span>Economia Atual (R$)</span>

@@ -57,10 +57,10 @@
             >{formatCurrency(incomeDetail.finalValue)}</td
           >
           <td class="px-6 py-4 whitespace-nowrap"
-            >{formatCurrency(incomeDetail.annualPassiveIncome)}</td
+            >{formatCurrency(incomeDetail.annualPassive)}</td
           >
           <td class="px-6 py-4 whitespace-nowrap"
-            >{formatCurrency(incomeDetail.monthlyPassiveIncome)}</td
+            >{formatCurrency(incomeDetail.monthlyPassive)}</td
           >
         </tr>
       {/each}
