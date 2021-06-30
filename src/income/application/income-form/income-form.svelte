@@ -42,27 +42,27 @@
     />
     <span>%</span>
   </label>
-  <label for="passiveYield">
+  <label for="passiveIncome">
     com o <strong class="text-accent-700">rendimentos passiva</strong> de
     <input
       type="number"
       min="1"
       max="100"
-      name="passiveYield"
+      name="passiveIncome"
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
-      bind:value={incomeForm.passiveYield}
+      bind:value={incomeForm.passiveIncome}
     />
     <span>%</span>
   </label>
-  <label for="applicationYield">
+  <label for="investmentIncome">
     e <strong class="text-accent-700">rendimento das aplicações</strong> de
     <input
       type="number"
       min="1"
       max="100"
-      name="applicationYield"
+      name="investmentIncome"
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
-      bind:value={incomeForm.applicationYield}
+      bind:value={incomeForm.investmentIncome}
     />
     <span>%</span>
   </label>

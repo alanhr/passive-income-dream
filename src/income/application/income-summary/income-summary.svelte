@@ -15,7 +15,7 @@
   })
   $: incomeGoal = getIncomeGoal({
     desiredIncome: incomeForm.desiredIncome ?? 0,
-    passiveYield: incomeForm.passiveYield ?? 1,
+    passiveIncome: incomeForm.passiveIncome ?? 1,
   })
 </script>
 

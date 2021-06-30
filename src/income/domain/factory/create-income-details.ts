@@ -13,7 +13,7 @@ const createIncomeDetail = (
 ): IncomeDetail => {
   const incomeSaved = getCurrentlyIncomeSaved(income)
   const annualContribution = getAnnualContribution(incomeSaved, lastIncomeSaved)
-  const annualYield = income.applicationYield
+  const annualYield = income.investmentIncome
   const finalValue = getFinalValue({
     annualYield,
     annualContribution,

@@ -8,9 +8,9 @@ export const getCurrentlyIncomeSaved = ({
 
 export const getIncomeGoal = ({
   desiredIncome,
-  passiveYield,
-}: Pick<Income, 'desiredIncome' | 'passiveYield'>): number =>
-  (desiredIncome * 12) / (passiveYield / 100)
+  passiveIncome,
+}: Pick<Income, 'desiredIncome' | 'passiveIncome'>): number =>
+  (desiredIncome * 12) / (passiveIncome / 100)
 
 export const getAnnualContribution = (
   incomeSaved: number,
@@ -24,11 +24,11 @@ export const getFinalValue = ({
   annualContribution + annualContribution * (annualYield / 100)
 
 export const getAnnualPassiveIncome =
-  ({ passiveYield }: Pick<Income, 'passiveYield'>) =>
+  ({ passiveIncome }: Pick<Income, 'passiveIncome'>) =>
   ({ finalValue }: Pick<IncomeDetail, 'finalValue'>): number =>
-    (passiveYield / 100) * finalValue
+    (passiveIncome / 100) * finalValue
 
 export const getMonthlyPassiveIncome =
-  (income: Pick<Income, 'passiveYield'>) =>
+  (income: Pick<Income, 'passiveIncome'>) =>
   (incomeDetail: Pick<IncomeDetail, 'finalValue'>): number =>
     getAnnualPassiveIncome(income)(incomeDetail) / 12

@@ -10,6 +10,6 @@ export type Income = {
   desiredIncome: number
   monthlyIncome: number
   percentageSaved: number
-  passiveYield: number
-  applicationYield: number
+  investmentIncome: number
+  passiveIncome: number
 }
