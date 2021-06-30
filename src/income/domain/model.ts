@@ -2,14 +2,14 @@ export type IncomeDetail = {
   annualContribution: number
   annualYield: number
   finalValue: number
-  annualPassiveIncome: number
-  monthlyPassiveIncome: number
+  annualPassive: number
+  monthlyPassive: number
 }
 
 export type Income = {
-  desiredIncome: number
-  monthlyIncome: number
-  percentageSaved: number
-  investmentIncome: number
-  passiveIncome: number
+  desired: number
+  current: number
+  saved: number
+  applicationYield: number
+  passiveYield: number
 }

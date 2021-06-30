@@ -9,36 +9,45 @@ import type { Income, IncomeDetail } from '../model'
 
 const createIncomeDetail = (
   income: Income,
-  lastIncomeSaved = 0
+  lastIncomeSaved:number
 ): IncomeDetail => {
+  const annualYield = income.applicationYield
   const incomeSaved = getCurrentlyIncomeSaved(income)
-  const annualContribution = getAnnualContribution(incomeSaved, lastIncomeSaved)
-  const annualYield = income.investmentIncome
+  const annualContribution = getAnnualContribution({ saved: incomeSaved })(
+    lastIncomeSaved
+  )
   const finalValue = getFinalValue({
     annualYield,
     annualContribution,
   })
-  const annualPassiveIncome = getAnnualPassiveIncome(income)({ finalValue })
-  const monthlyPassiveIncome = getMonthlyPassiveIncome(income)({ finalValue })
+  const annualPassive = getAnnualPassiveIncome(income)({ finalValue })
+  const monthlyPassive = getMonthlyPassiveIncome(income)({ finalValue })
 
   return {
     annualContribution,
     annualYield,
     finalValue,
-    annualPassiveIncome,
-    monthlyPassiveIncome,
+    annualPassive,
+    monthlyPassive,
   }
 }
+
+const isLessThanOrEqualZero = (value: number): boolean => value <= 0
+
+const isAnyZeroValue = (data: Record<string, number>) =>
+  Object.values(data).some(isLessThanOrEqualZero)
 
 export const createIncomeDetails = (income: Income): IncomeDetail[] => {
   let currentFinalValue = 0
   let currentMonthlyPassiveIncome = 0
   const incomeDetails: IncomeDetail[] = []
 
-  while (currentMonthlyPassiveIncome < income.desiredIncome) {
+  if (isAnyZeroValue(income)) return incomeDetails
+
+  while (currentMonthlyPassiveIncome < income.desired) {
     const incomeDetail = createIncomeDetail(income, currentFinalValue)
     currentFinalValue = incomeDetail.finalValue
-    currentMonthlyPassiveIncome = incomeDetail.monthlyPassiveIncome
+    currentMonthlyPassiveIncome = incomeDetail.monthlyPassive
 
     incomeDetails.push(incomeDetail)
   }
