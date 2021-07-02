@@ -1,13 +1,13 @@
 <script lang="ts">
   import { get } from 'svelte/store'
 
-  import Container from '../../../shared/ui/container/container.svelte'
-  import { IncomeForm } from '../../application/income-form'
-  import { IncomeSummary } from '../../application/income-summary'
-  import { IncomeTable } from '../../application/income-table'
-  import { createIncomeDetails } from '../../domain/factory/create-income-details'
-  import type { IncomeDetail } from '../../domain/model'
-  import { incomeForm } from '../data/store'
+  import { Container } from '@src/shared/ui/container'
+  import { IncomeForm } from '@src/income/presentation/income-form'
+  import { IncomeSummary } from '@src/income/presentation/income-summary'
+  import { IncomeTable } from '@src/income/presentation/income-table'
+  import { createIncomeDetails } from '@src/income/domain/factory/create-income-details'
+  import type { IncomeDetail } from '@src/income/domain/model'
+  import { incomeForm } from '@src/income/infra/data/store'
 
   $: incomeDetails = [] as IncomeDetail[]
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Income from '../income/infra/page/income.svelte'
+  import Income from '@src/income/presentation/page/income.svelte'
   import TailwindCss from './tailwind-css.svelte'
 </script>
 

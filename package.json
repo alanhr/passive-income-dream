@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.14.7",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-typescript": "^8.0.0",
@@ -82,28 +83,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "jest": {
-    "bail": false,
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "svelte"
-    ],
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.svelte$": [
-        "svelte-jester",
-        {
-          "preprocess": true
-        }
-      ],
-      "^.+\\.ts$": "ts-jest"
-    },
-    "verbose": true
   },
   "babel": {
     "presets": [

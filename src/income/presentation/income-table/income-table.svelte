@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { formatCurrency } from '../../../shared/helpers/format-currency'
-  import type { IncomeDetail } from '../../domain/model'
+  import { formatCurrency } from '@src/shared/helpers/format-currency'
+  import type { IncomeDetail } from '@src/income/domain/model'
 
   export let incomeDetails: IncomeDetail[] = []
 </script>

@@ -2,10 +2,10 @@
   import {
     getCurrentlyIncomeSaved,
     getIncomeGoal,
-  } from '../../domain/services/calc'
-  import { formatCurrency } from '../../../shared/helpers/format-currency'
+  } from '@src/income/domain/services/calc'
+  import { formatCurrency } from '@src/shared/helpers/format-currency'
 
-  import type { Income } from '../../domain/model'
+  import type { Income } from '@src/income/domain/model'
 
   export let incomeForm: Income
 

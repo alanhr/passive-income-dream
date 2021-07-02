@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Income } from '../../domain/model'
+  import type { Income } from '@src/income/domain/model'
 
   export let incomeForm: Income
 </script>

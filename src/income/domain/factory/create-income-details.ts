@@ -4,8 +4,8 @@ import {
   getCurrentlyIncomeSaved,
   getFinalValue,
   getMonthlyPassiveIncome,
-} from '../services/calc'
-import type { Income, IncomeDetail } from '../model'
+} from '@src/income/domain/services/calc'
+import type { Income, IncomeDetail } from '@src/income/domain/model'
 
 const createIncomeDetail = (
   income: Income,
