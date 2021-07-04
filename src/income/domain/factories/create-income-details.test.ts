@@ -1,5 +1,5 @@
 import { createIncomeDetails } from './create-income-details'
-import type { Income } from '../model';
+import type { Income } from '@src/income/domain/model';
 
 describe('Create income details', () => {
   test('should return a list of income details', () => {
