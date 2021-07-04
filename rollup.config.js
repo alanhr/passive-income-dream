@@ -8,9 +8,9 @@ import typescript from '@rollup/plugin-typescript'
 import css from 'rollup-plugin-css-only'
 import alias from '@rollup/plugin-alias'
 import path from 'path'
+import replace from '@rollup/plugin-replace'
 
 const production = !process.env.ROLLUP_WATCH
-
 function serve() {
   let server
 
@@ -45,6 +45,13 @@ export default {
     file: 'public/build/bundle.js',
   },
   plugins: [
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      preventAssignment: true,
+      values: {
+        'process.env.NODE_ENV': JSON.stringify('development')
+      }
+    }),
     svelte({
       preprocess: sveltePreprocess({
         sourceMap: !production,

@@ -39,10 +39,7 @@ module.exports = {
       maxHeight: {
         hath: '50vh',
       },
+      opacity: ['disabled'],
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
 }
