@@ -1,4 +1,4 @@
-import { createIncomeDetails } from './create-income-details'
+import { createIncomeDetails } from './create-income-details.factory'
 import type { Income } from '@src/income/domain/model';
 
 describe('Create income details', () => {

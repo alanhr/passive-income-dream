@@ -1,10 +1,6 @@
 import {
-  getAnnualContribution,
-  getAnnualPassiveIncome,
-  getCurrentlyIncomeSaved,
-  getFinalValue,
-  getMonthlyPassiveIncome,
-} from '@src/income/domain/services/calc'
+  calcService
+} from '@src/income/domain/services'
 import type { Income, IncomeDetail } from '@src/income/domain/model'
 
 const createIncomeDetail = (
@@ -12,16 +8,20 @@ const createIncomeDetail = (
   lastIncomeSaved:number
 ): IncomeDetail => {
   const annualYield = income.applicationYield
-  const incomeSaved = getCurrentlyIncomeSaved(income)
-  const annualContribution = getAnnualContribution({ saved: incomeSaved })(
-    lastIncomeSaved
-  )
-  const finalValue = getFinalValue({
+  const incomeSaved = calcService.getCurrentlyIncomeSaved(income)
+  const annualContribution = calcService.getAnnualContribution({
+    saved: incomeSaved,
+  })(lastIncomeSaved)
+  const finalValue = calcService.getFinalValue({
     annualYield,
     annualContribution,
   })
-  const annualPassive = getAnnualPassiveIncome(income)({ finalValue })
-  const monthlyPassive = getMonthlyPassiveIncome(income)({ finalValue })
+  const annualPassive = calcService.getAnnualPassiveIncome(income)({
+    finalValue,
+  })
+  const monthlyPassive = calcService.getMonthlyPassiveIncome(income)({
+    finalValue,
+  })
 
   return {
     annualContribution,

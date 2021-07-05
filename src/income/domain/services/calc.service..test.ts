@@ -1,4 +1,4 @@
-import * as calcService from './calc'
+import * as calcService from './calc.service'
 import { Income, IncomeDetail } from '../model';
 
 describe('Calc service', () => {
