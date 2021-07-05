@@ -1,10 +1,10 @@
 import type { Income, IncomeDetail } from '@src/income/domain/model'
 import { isProduction } from '@src/shared/helpers/isProduction'
-import { createMachine, EventObject, interpret, assign } from 'xstate'
+import { createMachine, interpret, assign } from 'xstate'
 
 type IncomeEvent =
   | { type: 'UPDATE'; field: keyof Income; value: number }
-  | { details: IncomeDetail[]; type: 'SUBMIT' }
+  | { details: IncomeDetail[]; type: 'ADD_DETAILS' }
 
 type IncomeContext = {
   income: Income
@@ -14,27 +14,29 @@ type IncomeContext = {
 export const incomeMachine = createMachine<IncomeContext, IncomeEvent>(
   {
     id: 'income',
-    initial: 'setFields',
+    initial: 'fields',
     context: {
       income: {
         desired: 0,
         current: 0,
         saved: 0,
-        applicationYield: 1,
-        passiveYield: 1,
+        applicationYield: 0,
+        passiveYield: 0,
       },
       details: [],
     },
     states: {
-      setFields: {
+      fields: {
         on: {
           UPDATE: {
             actions: 'assignValue',
           },
-          SUBMIT: {
-            cond: 'shouldSubmit',
-            actions: 'assignDetails',
-          },
+          ADD_DETAILS: [
+            {
+              cond: 'shouldSubmit',
+              actions: 'assignDetails',
+            },
+          ],
         },
       },
     },
@@ -42,7 +44,7 @@ export const incomeMachine = createMachine<IncomeContext, IncomeEvent>(
   {
     actions: {
       assignValue: assign((context, event) => {
-        if(event.type !== "UPDATE") return context
+        if (event.type !== 'UPDATE') return context
 
         return {
           ...context,
@@ -53,16 +55,16 @@ export const incomeMachine = createMachine<IncomeContext, IncomeEvent>(
         }
       }),
       assignDetails: assign((context, event) => {
-        if (event.type !== 'SUBMIT') return context
+        if (event.type !== 'ADD_DETAILS') return context
         return {
           ...context,
-          details: event.details
+          details: event.details,
         }
       }),
     },
     guards: {
       shouldSubmit: (context) =>
-        Object.values(context.income).every((value) => value > 1),
+        Object.values(context.income).every((value) => value > 0),
     },
   }
 )

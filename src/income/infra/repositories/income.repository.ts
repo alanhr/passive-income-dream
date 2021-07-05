@@ -1,16 +1,14 @@
+import { IncomeRepository } from '@src/income/domain/contracts'
 import type { Income, IncomeDetail } from '@src/income/domain/model'
-import type { IncomeStore } from '@src/income/infra/data/income-store'
+import type { IncomeStore } from '@src/income/infra/stores'
 
-const setValue =
+const setIncomeValue =
   (store: IncomeStore) =>
   (field: keyof Income) =>
   (value: number): void => {
     store.send('UPDATE', { field, value })
   }
 
-const getValue = (store: IncomeStore) => (field: keyof Income) => {
-  return store.state.context.income[field]
-}
 const getIncome = (store: IncomeStore) => (): Income => {
   return store.state.context.income
 }
@@ -18,19 +16,18 @@ const getDetails = (store: IncomeStore) => (): IncomeDetail[] => {
   return store.state.context.details
 }
 
-const sendData =
+const setDetails =
   (store: IncomeStore) =>
   (details: IncomeDetail[]): void => {
-    store.send('SUBMIT', { details })
+    store.send('ADD_DETAILS', { details })
   }
 
-const incomeRepository = (store: IncomeStore) => {
+const incomeRepository = (store: IncomeStore): IncomeRepository => {
   return {
-    setValue: setValue(store),
-    getValue: getValue(store),
+    setIncomeValue: setIncomeValue(store),
     getIncome: getIncome(store),
     getDetails: getDetails(store),
-    sendData: sendData(store),
+    setDetails: setDetails(store),
   }
 }
 
