@@ -41,5 +41,10 @@ jobs:
       - name: Install Vercel
         run: yarn global add vercel
 
+      - name: Build
+        env:
+          NODE_ENV: production
+        run: yarn build
+
       - name: Publish
         run: vercel -c --prod -t ${{secrets.VERCEL_TOKEN}}  deploy ${{secrets.VERCEL_PROJECT_NAME}}
