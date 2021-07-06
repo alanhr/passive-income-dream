@@ -9,7 +9,7 @@
 </script>
 
 <Container>
-  <img class="m-auto" src="/logo.svg" alt="Logo" width="150px" />
+  <img class="m-auto" src="/assets/images/logo.svg" alt="Logo" width="150px" />
   <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 mt-10 px-6 sm:px-0">
     <IncomeForm {incomeService} />
     <IncomeSummary {incomeService} />

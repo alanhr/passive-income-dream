@@ -909,6 +909,18 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@beyonk/async-script-loader@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@beyonk/async-script-loader/-/async-script-loader-2.0.0.tgz#d8867e5cdf6ecd0e8cc06da06a8a5fb2a405f59f"
+  integrity sha512-OAhcycCXwSVsSMjJGAENz0qtrALW943IRbIGZRnJZBA2aO/BDdWuHY1gF/9l+dZITAEu/wAkwhMqtXNeqmW1rw==
+
+"@beyonk/svelte-google-analytics@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@beyonk/svelte-google-analytics/-/svelte-google-analytics-2.2.0.tgz#81faafe617105619849bddba89c9ee2ebd3c987d"
+  integrity sha512-SwH0+fw1JW7YIw61AnyeJRyGadwu0nkz6dpQZP+z8h85IJShXf4JIxwAXNLdsWf7ogEy6MRU0YoC1Mn6YF7pHw==
+  dependencies:
+    "@beyonk/async-script-loader" "^2.0.0"
+
 "@commitlint/cli@^12.1.4":
   version "12.1.4"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-12.1.4.tgz#af4d9dd3c0122c7b39a61fa1cd2abbad0422dbe0"
