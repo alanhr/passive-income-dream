@@ -3,13 +3,13 @@
   import { IncomeForm } from '@src/income/presentation/components/income-form'
   import { IncomeSummary } from '@src/income/presentation/components/income-summary'
   import { IncomeTable } from '@src/income/presentation/components/income-table'
-  import { useIncomeService } from '@src/income/application/services/use-income'
+  import { useIncomeService } from '@src/income/application/services'
 
   const incomeService = useIncomeService()
 </script>
 <Container>
   <img class="m-auto" src="/logo.png" alt="Logo" />
-  <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 mt-10 sm:px-6">
+  <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 mt-10 px-6 sm:px-0">
     <IncomeForm {incomeService} />
     <IncomeSummary {incomeService} />
   </div>

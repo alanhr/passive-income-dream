@@ -1,14 +1,14 @@
 <script lang="ts">
-  import type { useIncomeService } from '@src/income/application/services/use-income'
+  import type { useIncomeService } from '@src/income/application/services'
 
   import { formatCurrency } from '@src/shared/helpers/format-currency'
-import { derived } from 'svelte/store';
+  import { derived } from 'svelte/store'
 
   export let incomeService: ReturnType<typeof useIncomeService>
 
   const { details } = incomeService
 
-  const isNotEmpty = derived(details, $details => $details.length > 0)
+  const isNotEmpty = derived(details, ($details) => $details.length > 0)
 </script>
 
 <div

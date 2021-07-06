@@ -1,10 +1,9 @@
 <script lang="ts">
   import {
-    getCurrentlyIncomeSaved,
-    getIncomeGoal,
-  } from '@src/income/domain/services/calc'
+    calcService
+  } from '@src/income/domain/services'
 
-  import type { useIncomeService } from '@src/income/application/services/use-income'
+  import type { useIncomeService } from '@src/income/application/services'
   import { formatCurrency } from '@src/shared/helpers/format-currency'
   import { derived } from 'svelte/store'
 
@@ -27,8 +26,8 @@
     return $details[total - 1]
   })
 
-  $: currentyIncomeSaved = getCurrentlyIncomeSaved($income)
-  $: incomeGoal = getIncomeGoal($income)
+  $: currentyIncomeSaved = calcService.getCurrentlyIncomeSaved($income)
+  $: incomeGoal = calcService.getIncomeGoal($income)
 </script>
 
 <div class="bg-primary-50  rounded-xl p-8">

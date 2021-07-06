@@ -2,6 +2,8 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
     "importsNotUsedAsValues": "remove",
+    "module": "ESNext",
+    "sourceMap": true,
     "strict": true,
     "baseUrl": ".",
     "paths": {

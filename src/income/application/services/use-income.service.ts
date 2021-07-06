@@ -1,8 +1,9 @@
-import { incomeStore } from '@src/income/infra/data/income-store'
-import { incomeRepository } from '@src/income/infra/repositories/income-repository'
+import { incomeStore } from '@src/income/infra/stores'
+import { incomeRepository } from '@src/income/infra/repositories'
 import type { Income, IncomeDetail } from '@src/income/domain/model'
 import { get, writable } from 'svelte/store'
-import { createIncomeDetails } from '@src/income/domain/factories/create-income-details'
+import { createIncomeDetails } from '@src/income/domain/factories/create-income-details.factory'
+
 
 const repository = incomeRepository(incomeStore)
 
@@ -16,11 +17,11 @@ incomeStore.subscribe(({ context }) => {
 
 export const useIncomeService = () => {
   const setFieldValue = (name: keyof Income) => (value: number) => {
-    repository.setValue(name)(value)
+    repository.setIncomeValue(name)(value)
   }
 
   const handleSubmit = (): void => {
-    repository.sendData(createIncomeDetails(get(income)))
+    repository.setDetails(createIncomeDetails(get(income)))
   }
 
   return {

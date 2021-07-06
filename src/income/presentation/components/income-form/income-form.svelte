@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { useIncomeService } from '@src/income/application/services/use-income'
+  import type { useIncomeService } from '@src/income/application/services'
   import type { Income } from '@src/income/domain/model'
   import { derived } from 'svelte/store'
 
