@@ -34,9 +34,9 @@
       required
       on:blur={handleBlur('desired')}
     />
-  </label>
+  </label>.
   <label for="current"
-    >,a <strong class="text-accent-700">atual</strong> é de R$
+    >Meus <strong class="text-accent-700">rendimentos atuais</strong> <i>(salário/aluguel/etc)</i> são de R$
     <input
       type="number"
       name="current"
@@ -45,10 +45,9 @@
       required
       on:blur={handleBlur('current')}
     />
-    .
   </label>
   <label for="saved"
-    >Desse montante, pretendo <strong class="text-accent-700">economizar</strong
+    > e desse montante, pretendo <strong class="text-accent-700">economizar</strong
     >
     <input
       type="number"
@@ -59,10 +58,10 @@
       value={$income.saved}
       on:blur={handleBlur('saved')}
     />
-    <span>%</span>
+    <span>%</span>.
   </label>
   <label for="passiveYield">
-    com o <strong class="text-accent-700">rendimentos passiva</strong> de
+    Com o <strong class="text-accent-700">rendimentos acima da inflação</strong> de
     <input
       type="number"
       min="1"
