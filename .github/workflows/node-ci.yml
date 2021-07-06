@@ -6,27 +6,24 @@ jobs:
   setup:
     runs-on: ['ubuntu-latest']
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - uses: actions/checkout@v2
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          node-version: 14
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Run Lint
-        run: yarn lint
-
-      - name: Run Test
-        run: yarn test
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
   quality:
     runs-on: ['ubuntu-latest']
