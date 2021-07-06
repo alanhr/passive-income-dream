@@ -3,7 +3,7 @@ name: Quality
 on: ['push']
 
 jobs:
-  checkup:
+  setup:
     runs-on: ['ubuntu-latest']
 
     strategy:
@@ -20,7 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
+  checkup:
+    needs: setup
+    runs-on: ['ubuntu-latest']
 
+    steps:
       - name: Run Lint
         run: yarn lint
 
