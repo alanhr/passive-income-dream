@@ -8,10 +8,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "format": "prettier --write ./src/**/*.{js,svelte,html,ts}",
     "lint": "eslint './src/**/*.{js,ts,svelte}'",
-    "lint:fix": "eslint --fix './src/**/*.{js,ts,svelte}'",
-    "prelint": "npm run format",
+    "lint:fix": "eslint './src/**/*.{js,ts,svelte}' --fix",
     "test": "jest",
     "test:watch": "yarn test --watch"
   },

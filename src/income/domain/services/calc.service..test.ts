@@ -1,5 +1,5 @@
 import * as calcService from './calc.service'
-import { Income, IncomeDetail } from '../model';
+import { Income } from '../model'
 
 describe('Calc service', () => {
   const income: Income = {

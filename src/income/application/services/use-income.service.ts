@@ -4,7 +4,6 @@ import type { Income, IncomeDetail } from '@src/income/domain/model'
 import { get, writable } from 'svelte/store'
 import { createIncomeDetails } from '@src/income/domain/factories/create-income-details.factory'
 
-
 const repository = incomeRepository(incomeStore)
 
 const income = writable<Income>(repository.getIncome())

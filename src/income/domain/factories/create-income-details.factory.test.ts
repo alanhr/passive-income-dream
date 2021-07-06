@@ -1,12 +1,12 @@
 import { createIncomeDetails } from './create-income-details.factory'
-import type { Income } from '@src/income/domain/model';
+import type { Income } from '@src/income/domain/model'
 
 describe('Create income details', () => {
   test('should return a list of income details', () => {
-    const income:Income = {
+    const income: Income = {
       applicationYield: 8,
-      passiveYield:4,
-      saved:25,
+      passiveYield: 4,
+      saved: 25,
       desired: 1500,
       current: 2000,
     }
@@ -15,7 +15,9 @@ describe('Create income details', () => {
 
     expect(result.length).toBeGreaterThanOrEqual(1)
 
-    expect(income.desired).toBeLessThanOrEqual(result[result.length -1].monthlyPassive)
+    expect(income.desired).toBeLessThanOrEqual(
+      result[result.length - 1].monthlyPassive
+    )
   })
 
   test('should return empty array if object contains zero', () => {
@@ -31,5 +33,4 @@ describe('Create income details', () => {
 
     expect(result).toEqual([])
   })
-
 })

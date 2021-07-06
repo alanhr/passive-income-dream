@@ -3,7 +3,7 @@
   @import 'tailwindcss/components';
   @import 'tailwindcss/utilities';
 
-  body{
+  body {
     @apply font-body;
   }
 </style>

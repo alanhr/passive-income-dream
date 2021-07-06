@@ -52,7 +52,6 @@ describe('Income Repository', () => {
   })
 
   test('should return income', () => {
-
     expect(repository.getIncome()).toEqual(
       expect.objectContaining({
         desired: 0,
@@ -65,7 +64,6 @@ describe('Income Repository', () => {
   })
 
   test('should return details', () => {
-
     expect(repository.getDetails()).toEqual(expect.any(Array))
   })
 })

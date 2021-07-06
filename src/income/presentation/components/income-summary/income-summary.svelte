@@ -1,7 +1,5 @@
 <script lang="ts">
-  import {
-    calcService
-  } from '@src/income/domain/services'
+  import { calcService } from '@src/income/domain/services'
 
   import type { useIncomeService } from '@src/income/application/services'
   import { formatCurrency } from '@src/shared/helpers/format-currency'
@@ -12,13 +10,12 @@
   const { income, details } = incomeService
 
   const finalYear = derived(details, ($details) => {
-    const currentYear = (new Date()).getFullYear()
+    const currentYear = new Date().getFullYear()
     const size = $details.length
 
-    if(size > 0 ) return currentYear + size
+    if (size > 0) return currentYear + size
 
     return null
-
   })
   const lastDetail = derived(details, ($details) => {
     const total = $details.length

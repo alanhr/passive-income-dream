@@ -1,11 +1,9 @@
-import {
-  calcService
-} from '@src/income/domain/services'
+import { calcService } from '@src/income/domain/services'
 import type { Income, IncomeDetail } from '@src/income/domain/model'
 
 const createIncomeDetail = (
   income: Income,
-  lastIncomeSaved:number
+  lastIncomeSaved: number
 ): IncomeDetail => {
   const annualYield = income.applicationYield
   const incomeSaved = calcService.getCurrentlyIncomeSaved(income)

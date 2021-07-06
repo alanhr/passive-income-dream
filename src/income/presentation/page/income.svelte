@@ -7,6 +7,7 @@
 
   const incomeService = useIncomeService()
 </script>
+
 <Container>
   <img class="m-auto" src="/logo.png" alt="Logo" />
   <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 mt-10 px-6 sm:px-0">

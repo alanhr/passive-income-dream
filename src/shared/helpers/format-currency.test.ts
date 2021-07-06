@@ -1,4 +1,4 @@
-import {formatCurrency } from './format-currency'
+import { formatCurrency } from './format-currency'
 
 describe('Format Curreny', () => {
   test('should convert number to real', () => {
@@ -8,5 +8,5 @@ describe('Format Curreny', () => {
 
     expect(result).toContain('R$')
     expect(result).toContain(expectedValue)
-  });
+  })
 })
