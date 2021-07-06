@@ -51,11 +51,11 @@
       <span>{$finalYear ?? '--'}</span>
     </div>
     <div class="flex justify-between">
-      <span>Renda passiava mensal de:</span>
+      <span>Renda passiva mensal de:</span>
       <span>{formatCurrency($lastDetail?.monthlyPassive ?? 0)}</span>
     </div>
     <div class="flex justify-between">
-      <span>Renda passiava anual de:</span>
+      <span>Renda passiva anual de:</span>
       <span>{formatCurrency($lastDetail?.annualPassive ?? 0)}</span>
     </div>
   </div>

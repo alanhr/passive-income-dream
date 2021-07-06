@@ -21,7 +21,7 @@ export const incomeMachine = createMachine<IncomeContext, IncomeEvent>(
         current: 0,
         saved: 0,
         applicationYield: 0,
-        passiveYield: 0,
+        passiveYield: 4,
       },
       details: [],
     },

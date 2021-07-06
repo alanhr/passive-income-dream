@@ -9,12 +9,12 @@
 </script>
 
 <Container>
-  <img class="m-auto" src="/logo.png" alt="Logo" />
+  <img class="m-auto" src="/logo.svg" alt="Logo" width="150px" />
   <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12 mt-10 px-6 sm:px-0">
     <IncomeForm {incomeService} />
     <IncomeSummary {incomeService} />
   </div>
-  <div class="mt-16">
+  <div class="mt-8">
     <IncomeTable {incomeService} />
   </div>
 </Container>
