@@ -38,13 +38,20 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Install Vercel
-        run: yarn global add vercel
-
       - name: Build
         env:
           NODE_ENV: production
         run: yarn build
 
       - name: Publish
-        run: vercel -c --prod -t ${{secrets.VERCEL_TOKEN}}  deploy ${{secrets.VERCEL_PROJECT_NAME}}
+        run: |
+          prodRun=""
+          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
+            prodRun="--prod"
+          fi
+
+          npx vercel --token ${VERCEL_TOKEN} $prodRun
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
