@@ -20,6 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
+
+      - uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
   checkup:
     needs: setup
     runs-on: ['ubuntu-latest']
