@@ -42,4 +42,4 @@ jobs:
         run: yarn global add vercel
 
       - name: Publish
-        run: cd public && vercel deploy ${{secrets.VERCEL_PROJECT_NAME}}
+        run: cd public && vercel -c --prod -t ${{secrets.VERCEL_TOKEN}}  deploy ${{secrets.VERCEL_PROJECT_NAME}}
