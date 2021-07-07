@@ -10,7 +10,7 @@
     Object.values($income).every((value) => value > 1)
   )
 
-  const handleBlur = (field: keyof Income) => (event: Event) => {
+  const handleOnChange = (field: keyof Income) => (event: Event) => {
     const inputValue = (<HTMLInputElement>event.target).value
     const value = inputValue.length ? parseInt(inputValue) : 0
 
@@ -32,22 +32,25 @@
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
       value={$income.desired}
       required
-      on:blur={handleBlur('desired')}
+      on:keyup={handleOnChange('desired')}
     />
   </label>.
   <label for="current"
-    >Meus <strong class="text-accent-700">rendimentos atuais</strong> <i>(salário/aluguel/etc)</i> são de R$
+    >Meus <strong class="text-accent-700">rendimentos atuais</strong>
+    <i>(salário/aluguel/etc)</i>
+    são de R$
     <input
       type="number"
       name="current"
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
       value={$income.current}
       required
-      on:blur={handleBlur('current')}
+      on:keyup={handleOnChange('current')}
     />
   </label>
-  <label for="saved"
-    > e desse montante, pretendo <strong class="text-accent-700">economizar</strong
+  <label for="saved">
+    e desse montante, pretendo <strong class="text-accent-700"
+      >economizar</strong
     >
     <input
       type="number"
@@ -56,12 +59,13 @@
       name="saved"
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
       value={$income.saved}
-      on:blur={handleBlur('saved')}
+      on:keyup={handleOnChange('saved')}
     />
     <span>%</span>.
   </label>
   <label for="passiveYield">
-    Com o <strong class="text-accent-700">rendimentos acima da inflação</strong> de
+    Com o <strong class="text-accent-700">rendimentos acima da inflação</strong>
+    de
     <input
       type="number"
       min="1"
@@ -70,7 +74,7 @@
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
       value={$income.passiveYield}
       required
-      on:blur={handleBlur('passiveYield')}
+      on:keyup={handleOnChange('passiveYield')}
     />
     <span>%</span>
   </label>
@@ -84,15 +88,14 @@
       class="outline-none w-16 text-accent-900 border-b-2 border-dashed border-accent-900"
       value={$income.applicationYield}
       required
-      on:blur={handleBlur('applicationYield')}
+      on:keyup={handleOnChange('applicationYield')}
     />
     <span>%</span>
   </label>
   <div class="block mt-11">
     <button
-      class:opacity-50={!$isValid}
       disabled={!$isValid}
-      class="p-4 rounded-md bg-accent-700 text-center text-primary-50"
+      class="p-4 rounded-md bg-accent-700 text-center text-primary-50 {!$isValid? 'opacity-50': ''}"
       type="submit">Calcular</button
     >
   </div>
