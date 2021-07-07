@@ -1,5 +1,8 @@
 module.exports = {
-  purge: ['./public/index.html', './src/**/*.{svelte,ts}'],
+  purge: {
+    content: ['./public/index.html', './src/**/*.svelte'],
+    safelist:['disabled:opacity-50'],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
@@ -39,7 +42,11 @@ module.exports = {
       maxHeight: {
         hath: '50vh',
       },
-      opacity: ['disabled'],
+    },
+    variants: {
+      extend: {
+        opacity: ['disabled'],
+      },
     },
   },
 }
