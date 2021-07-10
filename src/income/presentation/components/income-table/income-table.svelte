@@ -13,7 +13,7 @@
 
 <div
   class:overflow-x-auto={$isNotEmpty}
-  class="shadow border-gray-200 rounded-lg max-h-hath mb-40"
+  class="shadow border-gray-200 rounded-lg max-h-hath mb-40 overflow-y-auto"
 >
   <table class="table-auto min-w-full divide-y divide-gray-200">
     <thead class="bg-primary-50 relative">

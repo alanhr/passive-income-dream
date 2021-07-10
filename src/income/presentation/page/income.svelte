@@ -14,7 +14,7 @@
     <IncomeForm {incomeService} />
     <IncomeSummary {incomeService} />
   </div>
-  <div class="mt-8">
+  <div class="mt-8 px-6 sm:px-0">
     <IncomeTable {incomeService} />
   </div>
 </Container>
